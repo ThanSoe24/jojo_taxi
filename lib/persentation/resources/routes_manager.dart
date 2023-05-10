@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jojo_taxi/persentation/authentication/forgot_password_view.dart';
+import 'package:jojo_taxi/persentation/authentication/login_view.dart';
 import 'package:jojo_taxi/persentation/splash/splash_view.dart';
 
 class Routes {
   static const String splashRoute = "/splash";
-  static const String loginRoute = "/login";
-  static const String homeRoute = "/home";
+  static const String loginRoute = "/authentication/login";
+  static const String forgotRoute = "/authentication/forgot";
 }
 
 class RouteGenerator {
@@ -13,7 +15,10 @@ class RouteGenerator {
     switch (routeSettings.name) {
       case Routes.splashRoute:
         return MaterialPageRoute(builder: (_) => const SplashView());
-
+      case Routes.loginRoute:
+        return MaterialPageRoute(builder: (_) => const LoginView());
+      case Routes.forgotRoute:
+        return MaterialPageRoute(builder: (_) => const ForgotPasswordView());
       default:
         return unDefinedRoute();
     }

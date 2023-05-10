@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:jojo_taxi/persentation/resources/color_manager.dart';
+import 'package:jojo_taxi/persentation/resources/font_manager.dart';
 import 'package:jojo_taxi/persentation/resources/style_manager.dart';
 import 'package:jojo_taxi/utilities/currency_input_formatter.dart';
 
@@ -52,8 +53,6 @@ class JoJoTextField extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
-
           MediaQuery(
             data: MediaQuery.of(context).copyWith(
               textScaleFactor: 1,
@@ -65,10 +64,9 @@ class JoJoTextField extends StatelessWidget {
               maxLength: maximumCount,
               style: getRegularStyle(color: isEnabled
                   ?  ColorManager.black
-                  : ColorManager.grey),
+                  : ColorManager.grey, fontSize: FontSize.s16),
               keyboardType: textInputType,
               validator: validationBuilder.build(),
-
               inputFormatters: isMoneyFormat
                   ? [
                 FilteringTextInputFormatter.digitsOnly,
@@ -90,11 +88,16 @@ class JoJoTextField extends StatelessWidget {
                 fillColor: ColorManager.white,
                 contentPadding:
                 const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide: BorderSide.none,
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: ColorManager.primary, width: 1.5),
                 ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: ColorManager.lightGrey, width: 1.5),),
                 hintText: hint,
+                hintStyle: getRegularStyle(color:
+                    ColorManager.grey, fontSize: FontSize.s16)
               ),
             ),
           ),
