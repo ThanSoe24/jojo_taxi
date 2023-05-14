@@ -22,7 +22,7 @@ class JoJoText extends StatelessWidget {
       softWrap: wrapText,
       style: style,
       overflow: textOverflow,
-      textAlign: isCenter ? TextAlign.center : TextAlign.justify,
+      textAlign: isCenter ? TextAlign.center : TextAlign.start,
       textScaleFactor: 1,
 
     );

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:jojo_taxi/components/app_bar/app_bar_with_back.dart';
@@ -9,6 +8,7 @@ import 'package:jojo_taxi/components/text_field/jojo_text_field.dart';
 import 'package:jojo_taxi/persentation/resources/assests_manager.dart';
 import 'package:jojo_taxi/persentation/resources/color_manager.dart';
 import 'package:jojo_taxi/persentation/resources/font_manager.dart';
+import 'package:jojo_taxi/persentation/resources/routes_manager.dart';
 import 'package:jojo_taxi/persentation/resources/style_manager.dart';
 
 class ForgotPasswordView extends StatefulWidget {
@@ -25,7 +25,9 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.white,
-      appBar: AppBarWithBack(title: "Forgot Password", onBack: ()=>{ Navigator.of(context).pop()}),
+      appBar: AppBarWithBack(
+          title: "Forgot Password",
+          onBack: () => {Navigator.of(context).pop()}),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -34,10 +36,13 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
             children: [
-
               const Center(
                 child: JoJoImage(
-                  width: 150, height: 150, imageUrl: ImageAssets.jojoWhiteLogo, fit: BoxFit.cover, ),
+                  width: 150,
+                  height: 150,
+                  imageUrl: ImageAssets.jojoWhiteLogo,
+                  fit: BoxFit.cover,
+                ),
               ),
               const SizedBox(
                 height: 40,
@@ -56,9 +61,9 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
               const SizedBox(
                 height: 40,
               ),
-
               JoJoBtn(
-                onPressed: () {},
+                onPressed: () =>
+                    {Navigator.pushNamed(context, Routes.otpRoute)},
                 text: "Continue",
                 color: ColorManager.primary,
                 radius: 50,

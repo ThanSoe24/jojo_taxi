@@ -7,19 +7,23 @@ import 'package:jojo_taxi/persentation/resources/style_manager.dart';
 class JoJoBtn extends StatelessWidget {
   final String text;
   final Function() onPressed;
-  final bool isDisable;
-  final Color color, textColor;
+  final bool isDisable,isBlock;
+  final Color color, textColor,borderColor;
   final double radius;
   final double height;
+  final double elevation;
 
   const JoJoBtn(
       {Key? key,
       required this.text,
       required this.onPressed,
       this.textColor = Colors.white,
-      this.radius = 10,
+        this.borderColor = Colors.grey,
+      this.radius = 50,
       this.height = 55,
+        this.isBlock = true,
       this.isDisable = false,
+        this.elevation = 0,
       required this.color})
       : super(key: key);
 
@@ -32,12 +36,12 @@ class JoJoBtn extends StatelessWidget {
       hoverColor: Colors.transparent,
       colorBrightness: Brightness.light,
       onPressed: isDisable ? null : onPressed,
-      minWidth: 500,
+      minWidth: isBlock ? double.infinity :180,
       height: height,
-      elevation: 0,
+      elevation: elevation,
       highlightElevation: 0,
       shape: RoundedRectangleBorder(
-        side: BorderSide(color: color, width: isDisable ? 1 : 0),
+        side: BorderSide(color:  borderColor, width: isDisable ? 1 : 0),
         borderRadius: BorderRadius.circular(radius),
       ),
       color: color,
@@ -47,7 +51,7 @@ class JoJoBtn extends StatelessWidget {
                   ? ColorManager.primaryOpacity70
                   : textColor == Colors.white
                       ? color == Colors.white
-                          ? Colors.black
+                          ? ColorManager.grey
                           : Colors.white
                       : textColor,
               fontSize: FontSize.s16)),

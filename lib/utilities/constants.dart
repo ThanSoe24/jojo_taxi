@@ -10,4 +10,6 @@ class Constants{
 
   static String prefsToken = "token";
   static String prefsBGService = 'bgService';
+
+  static String version = '2.1';
 }

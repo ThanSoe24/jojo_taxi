@@ -25,6 +25,10 @@ class _LoginViewState extends State<LoginView> {
     Navigator.pushNamed(context, Routes.forgotRoute);
   }
 
+  void signInHandler(BuildContext context) {
+    Navigator.pushReplacementNamed(context, Routes.homeRoute);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +79,7 @@ class _LoginViewState extends State<LoginView> {
                 height: 60,
               ),
               JoJoBtn(
-                onPressed: () => {},
+                onPressed: () => {signInHandler(context)},
                 text: "Sign In",
                 color: ColorManager.primary,
                 radius: 50,

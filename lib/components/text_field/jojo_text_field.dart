@@ -97,7 +97,7 @@ class JoJoTextField extends StatelessWidget {
                   borderSide: BorderSide(color: ColorManager.lightGrey, width: 1.5),),
                 hintText: hint,
                 hintStyle: getRegularStyle(color:
-                    ColorManager.grey, fontSize: FontSize.s16)
+                    ColorManager.grey2, fontSize: FontSize.s16)
               ),
             ),
           ),
