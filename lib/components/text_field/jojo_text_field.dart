@@ -6,14 +6,12 @@ import 'package:jojo_taxi/persentation/resources/font_manager.dart';
 import 'package:jojo_taxi/persentation/resources/style_manager.dart';
 import 'package:jojo_taxi/utilities/currency_input_formatter.dart';
 
-
 class JoJoTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hint;
   final int maximumCount;
-  final Widget trailing,leading;
+  final Widget trailing, leading;
   final bool isPass,
-
       isLeading,
       isEnabled,
       isMoneyFormat,
@@ -27,22 +25,22 @@ class JoJoTextField extends StatelessWidget {
 
   const JoJoTextField(
       {Key? key,
-        this.isMoneyFormat = false,
-        required this.controller,
-        required this.hint,
-        this.isBtn = false,
-        this.isDigit = false,
-        this.isWord = false,
-        this.isPass = false,
-        this.isLeading = false,
-        this.isShowCount = false,
-        this.maximumCount = 50,
-        this.isEnabled = true,
-        this.trailing = const SizedBox(),
-        this.leading = const SizedBox(),
-        this.color,
-        required this.validationBuilder,
-        this.textInputType = TextInputType.text})
+      this.isMoneyFormat = false,
+      required this.controller,
+      required this.hint,
+      this.isBtn = false,
+      this.isDigit = false,
+      this.isWord = false,
+      this.isPass = false,
+      this.isLeading = false,
+      this.isShowCount = false,
+      this.maximumCount = 50,
+      this.isEnabled = true,
+      this.trailing = const SizedBox(),
+      this.leading = const SizedBox(),
+      this.color,
+      required this.validationBuilder,
+      this.textInputType = TextInputType.text})
       : super(key: key);
 
   @override
@@ -62,43 +60,45 @@ class JoJoTextField extends StatelessWidget {
               obscureText: isPass,
               enabled: isEnabled,
               maxLength: maximumCount,
-              style: getRegularStyle(color: isEnabled
-                  ?  ColorManager.black
-                  : ColorManager.grey, fontSize: FontSize.s16),
+              style: getRegularStyle(
+                  color: isEnabled ? ColorManager.black : ColorManager.grey,
+                  fontSize: FontSize.s16),
               keyboardType: textInputType,
               validator: validationBuilder.build(),
               inputFormatters: isMoneyFormat
                   ? [
-                FilteringTextInputFormatter.digitsOnly,
-                CurrencyInputFormatter()
-              ]
+                      FilteringTextInputFormatter.digitsOnly,
+                      CurrencyInputFormatter()
+                    ]
                   : isDigit
-                  ? [FilteringTextInputFormatter.digitsOnly]
-                  : isWord
-                  ? [
-                FilteringTextInputFormatter.allow(
-                    RegExp('[A-Z a-z]'))
-              ]
-                  : [],
+                      ? [FilteringTextInputFormatter.digitsOnly]
+                      : isWord
+                          ? [
+                              FilteringTextInputFormatter.allow(
+                                  RegExp('[A-Z a-z]'))
+                            ]
+                          : [],
               decoration: InputDecoration(
-                suffixIcon: trailing,
-                prefixIcon: isLeading ? leading : null,
-                filled: true,
-                counterText: "",
-                fillColor: ColorManager.white,
-                contentPadding:
-                const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: ColorManager.primary, width: 1.5),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: ColorManager.lightGrey, width: 1.5),),
-                hintText: hint,
-                hintStyle: getRegularStyle(color:
-                    ColorManager.grey2, fontSize: FontSize.s16)
-              ),
+                  suffixIcon: trailing,
+                  prefixIcon: isLeading ? leading : null,
+                  filled: true,
+                  counterText: "",
+                  fillColor: ColorManager.white,
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide:
+                        BorderSide(color: ColorManager.primary, width: 1.5),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide:
+                        BorderSide(color: ColorManager.lightGrey, width: 1.5),
+                  ),
+                  hintText: hint,
+                  hintStyle: getRegularStyle(
+                      color: ColorManager.grey2, fontSize: FontSize.s16)),
             ),
           ),
         ],
