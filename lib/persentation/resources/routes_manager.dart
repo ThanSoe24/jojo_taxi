@@ -14,6 +14,7 @@ import 'package:jojo_taxi/persentation/home/my_account/faq_view.dart';
 import 'package:jojo_taxi/persentation/home/my_account/history_view.dart';
 import 'package:jojo_taxi/persentation/home/my_account/incentives_view.dart';
 import 'package:jojo_taxi/persentation/home/my_account/terms_conditions_view.dart';
+import 'package:jojo_taxi/persentation/home/my_account/transaction_detail_view.dart';
 import 'package:jojo_taxi/persentation/splash/splash_view.dart';
 
 class Routes {
@@ -32,6 +33,7 @@ class Routes {
   static const String faqRoute = "/home/my_account/faq";
   static const String termsConditionsRoute = "/home/my_account/termsConditions";
   static const String aboutRoute = "/home/my_account/about";
+  static const String transactionHistoryRoute = "/home/my_account/transaction";
 }
 
 class RouteGenerator {
@@ -67,7 +69,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const TermsConditionsView());
       case Routes.aboutRoute:
         return MaterialPageRoute(builder: (_) => const AboutView());
-
+      case Routes.transactionHistoryRoute:
+        return MaterialPageRoute(builder: (_) => const TransactionDetailView());
       default:
         return unDefinedRoute();
     }
