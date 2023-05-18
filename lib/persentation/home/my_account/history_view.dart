@@ -3,10 +3,12 @@ import 'package:form_validator/form_validator.dart';
 import 'package:intl/intl.dart';
 import 'package:jojo_taxi/components/app_bar/app_bar_with_back.dart';
 import 'package:jojo_taxi/components/btn/jojo_btn.dart';
+import 'package:jojo_taxi/components/customs/jojo_image.dart';
 import 'package:jojo_taxi/components/jojo_text.dart';
 import 'package:jojo_taxi/components/text_field/jojo_date_picker_text_field.dart';
 import 'package:jojo_taxi/components/text_field/jojo_text_field.dart';
 import 'package:jojo_taxi/domain/model/transaction_model.dart';
+import 'package:jojo_taxi/persentation/resources/assests_manager.dart';
 import 'package:jojo_taxi/persentation/resources/color_manager.dart';
 import 'package:jojo_taxi/persentation/resources/font_manager.dart';
 import 'package:jojo_taxi/persentation/resources/routes_manager.dart';
@@ -104,10 +106,7 @@ class _HistoryViewState extends State<HistoryView> {
                       },
                       child: const Align(
                           alignment: Alignment.centerRight,
-                          child: Icon(
-                            Icons.filter_list,
-                            size: 35,
-                          )),
+                          child: JoJoImage(width: 50, height: 50, imageUrl: ImageAssets.filterIcon)),
                     )),
               ],
             ),
@@ -277,7 +276,8 @@ class _HistoryViewState extends State<HistoryView> {
               const SizedBox(
                 height: 20,
               ),
-              JoJoBtn(text: "Search", onPressed: (){}, color: ColorManager.primary)
+              JoJoBtn(
+                  text: "Search", onPressed: () {}, color: ColorManager.primary)
             ],
           ),
         ),
