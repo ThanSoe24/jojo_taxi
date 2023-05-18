@@ -18,10 +18,12 @@ class JoJoTextField extends StatelessWidget {
       isBtn,
       isWord,
       isDigit,
+  isSmall,
       isShowCount;
   final Color? color;
   final TextInputType textInputType;
   final ValidationBuilder validationBuilder;
+  final double radius;
 
   const JoJoTextField(
       {Key? key,
@@ -34,12 +36,14 @@ class JoJoTextField extends StatelessWidget {
       this.isPass = false,
       this.isLeading = false,
       this.isShowCount = false,
+        this.isSmall = false,
       this.maximumCount = 50,
       this.isEnabled = true,
       this.trailing = const SizedBox(),
       this.leading = const SizedBox(),
       this.color,
       required this.validationBuilder,
+        this.radius = 12,
       this.textInputType = TextInputType.text})
       : super(key: key);
 
@@ -85,14 +89,14 @@ class JoJoTextField extends StatelessWidget {
                   counterText: "",
                   fillColor: ColorManager.white,
                   contentPadding:
-                      const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                      EdgeInsets.symmetric(vertical: isSmall ? 2 : 20, horizontal: 15),
                   focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(radius),
                     borderSide:
                         BorderSide(color: ColorManager.primary, width: 1.5),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(radius),
                     borderSide:
                         BorderSide(color: ColorManager.lightGrey, width: 1.5),
                   ),
