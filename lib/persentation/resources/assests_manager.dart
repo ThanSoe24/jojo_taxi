@@ -5,6 +5,7 @@ class ImageAssets {
   static const String jojoWhiteLogo = "$IMAGE_PATH/jojo_white_logo.png";
   static const String comingSoonIcon = "$IMAGE_PATH/incentives-coming-soon.png";
   static const String filterIcon = "$IMAGE_PATH/filter_icon.png";
+  static const String welcomeImage = "$IMAGE_PATH/welcome_image.png";
 
   ///Car Type
   static const String hatchbackIcon = "$IMAGE_PATH/hatchback.png";

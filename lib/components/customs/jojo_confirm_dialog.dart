@@ -13,6 +13,7 @@ class JoJoConfirmDialog extends StatelessWidget {
   final String type;
   final String title;
   final VoidCallback action;
+  final bool? enableTitle;
 
   const JoJoConfirmDialog(
       {required this.context,
@@ -20,6 +21,7 @@ class JoJoConfirmDialog extends StatelessWidget {
       required this.type,
       required this.title,
       required this.action,
+        this.enableTitle = true,
       Key? key})
       : super(key: key);
 
@@ -33,13 +35,12 @@ class JoJoConfirmDialog extends StatelessWidget {
         backgroundColor: ColorManager.white,
         child: SizedBox(
           width: MediaQuery.of(context).size.width / 1.2,
-          height: 210,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 const SizedBox(height: 10,),
                 Align(
@@ -59,21 +60,21 @@ class JoJoConfirmDialog extends StatelessWidget {
                         )),
                   ),
                 ),
-                Padding(
+                enableTitle == true ? Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: JoJoText(
                     title,
                     style: getMediumStyle(
                         color: ColorManager.black, fontSize: FontSize.s20),
                   ),
-                ),
+                ) : SizedBox(height: 1,),
                 const SizedBox(
                   height: 20,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: JoJoText(message,
-                      style: getRegularStyle(color: ColorManager.grey)),
+                      style: getRegularStyle(color: ColorManager.grey,fontSize: FontSize.s16)),
                 ),
                 const SizedBox(
                   height: 30,
@@ -125,6 +126,9 @@ class JoJoConfirmDialog extends StatelessWidget {
                       ),
                     ],
                   ),
+                ),
+                const SizedBox(
+                  height: 30,
                 ),
               ],
             ),

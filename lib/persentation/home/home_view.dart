@@ -20,6 +20,8 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  bool isSwitched = false;
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -53,12 +55,57 @@ class _HomeViewState extends State<HomeView> {
         ));
   }
 
+  void toggleSwitch(bool value) {
+    setState(() {
+      isSwitched = value;
+    });
+    if(value == true){
+      showDialog(
+          context: context,
+          builder: (_) => JoJoConfirmDialog(
+            enableTitle: false,
+            title: " ",
+            context: context,
+            message:
+            "With switching to online mode, you will receive requests for rides.\n\nAre you sure you want to continue?",
+            type: Constants.error,
+            action: () {},
+          ));
+    }
+
+  }
+
   Widget deliveriesWidget(BuildContext context) {
-    return Container(
-        child: JoJoText(
-          "Deliveries",
-          style: getBoldStyle(color: ColorManager.primary),
-        ));
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            JoJoText("Offline", style: getBoldStyle(color: ColorManager.grey2.withOpacity(0.4), fontSize: FontSize.s18)),
+            const SizedBox(width: 10,),
+            Transform.scale(
+              scale: 1.5,
+              child: Switch(
+                value: isSwitched,
+                onChanged: toggleSwitch,
+                activeColor: ColorManager.primary,
+                activeTrackColor: ColorManager.grey2.withOpacity(0.4),
+                inactiveThumbColor: ColorManager.grey2,
+                inactiveTrackColor: ColorManager.grey2.withOpacity(0.4),
+
+              ),
+            ),
+            const SizedBox(width: 10,),
+            JoJoText("Online", style: getBoldStyle(color: ColorManager.success, fontSize: FontSize.s18)),
+          ],
+        ),
+        JoJoText("Waiting For A Ride", style: getBoldStyle(color: ColorManager.primary,fontSize: FontSize.s24)),
+        const JoJoImage(width: double.infinity, height: 450, imageUrl: ImageAssets.welcomeImage)
+      ],
+    );
   }
 
   Widget myAccountWidget(BuildContext context) {
