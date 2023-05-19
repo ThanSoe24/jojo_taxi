@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:jojo_taxi/components/btn/jojo_list_btn.dart';
 import 'package:jojo_taxi/components/customs/jojo_confirm_dialog.dart';
-import 'package:jojo_taxi/components/customs/jojo_dialog.dart';
 import 'package:jojo_taxi/components/customs/jojo_image.dart';
-import 'package:jojo_taxi/components/jojo_text.dart';
+import 'package:jojo_taxi/persentation/home/deliveries/deliveries_view.dart';
 import 'package:jojo_taxi/persentation/resources/assests_manager.dart';
 import 'package:jojo_taxi/persentation/resources/color_manager.dart';
 import 'package:jojo_taxi/persentation/resources/font_manager.dart';
 import 'package:jojo_taxi/persentation/resources/routes_manager.dart';
-import 'package:jojo_taxi/persentation/resources/style_manager.dart';
-import 'package:jojo_taxi/persentation/resources/value_manager.dart';
 import 'package:jojo_taxi/utilities/constants.dart';
 
 class HomeView extends StatefulWidget {
@@ -20,7 +17,7 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  bool isSwitched = false;
+
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +41,7 @@ class _HomeViewState extends State<HomeView> {
                 Expanded(
                   child: TabBarView(
                     children: [
-                      deliveriesWidget(context),
+                      const DeliveriesView(),
                       myAccountWidget(context),
                     ],
                   ),
@@ -55,58 +52,6 @@ class _HomeViewState extends State<HomeView> {
         ));
   }
 
-  void toggleSwitch(bool value) {
-    setState(() {
-      isSwitched = value;
-    });
-    if(value == true){
-      showDialog(
-          context: context,
-          builder: (_) => JoJoConfirmDialog(
-            enableTitle: false,
-            title: " ",
-            context: context,
-            message:
-            "With switching to online mode, you will receive requests for rides.\n\nAre you sure you want to continue?",
-            type: Constants.error,
-            action: () {},
-          ));
-    }
-
-  }
-
-  Widget deliveriesWidget(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            JoJoText("Offline", style: getBoldStyle(color: ColorManager.grey2.withOpacity(0.4), fontSize: FontSize.s18)),
-            const SizedBox(width: 10,),
-            Transform.scale(
-              scale: 1.5,
-              child: Switch(
-                value: isSwitched,
-                onChanged: toggleSwitch,
-                activeColor: ColorManager.primary,
-                activeTrackColor: ColorManager.grey2.withOpacity(0.4),
-                inactiveThumbColor: ColorManager.grey2,
-                inactiveTrackColor: ColorManager.grey2.withOpacity(0.4),
-
-              ),
-            ),
-            const SizedBox(width: 10,),
-            JoJoText("Online", style: getBoldStyle(color: ColorManager.success, fontSize: FontSize.s18)),
-          ],
-        ),
-        JoJoText("Waiting For A Ride", style: getBoldStyle(color: ColorManager.primary,fontSize: FontSize.s24)),
-        const JoJoImage(width: double.infinity, height: 450, imageUrl: ImageAssets.welcomeImage)
-      ],
-    );
-  }
 
   Widget myAccountWidget(BuildContext context) {
     return SingleChildScrollView(
