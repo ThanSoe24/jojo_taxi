@@ -12,4 +12,8 @@ class Constants{
   static String prefsBGService = 'bgService';
 
   static String version = '2.1';
+
+  static String accept = 'accept';
+  static String pending = 'pending';
+  static String reject = 'reject';
 }

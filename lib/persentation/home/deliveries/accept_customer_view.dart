@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jojo_taxi/components/btn/jojo_btn.dart';
 import 'package:jojo_taxi/components/customs/jojo_dropdown_pet.dart';
 import 'package:jojo_taxi/components/customs/jojo_image.dart';
 import 'package:jojo_taxi/components/customs/jojo_info_list.dart';
@@ -9,14 +10,14 @@ import 'package:jojo_taxi/persentation/resources/font_manager.dart';
 import 'package:jojo_taxi/persentation/resources/style_manager.dart';
 import 'package:jojo_taxi/utilities/constants.dart';
 
-class RequestCustomerView extends StatefulWidget {
-  const RequestCustomerView({Key? key}) : super(key: key);
+class AcceptCustomerView extends StatefulWidget {
+  const AcceptCustomerView({Key? key}) : super(key: key);
 
   @override
-  State<RequestCustomerView> createState() => _RequestCustomerViewState();
+  State<AcceptCustomerView> createState() => _AcceptCustomerViewState();
 }
 
-class _RequestCustomerViewState extends State<RequestCustomerView> {
+class _AcceptCustomerViewState extends State<AcceptCustomerView> {
   bool dropdownPetOpen = false;
 
   void handleDropDownPet() {
@@ -38,7 +39,7 @@ class _RequestCustomerViewState extends State<RequestCustomerView> {
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
                 boxShadow: [
-                  BoxShadow(color: ColorManager.linkText,blurRadius: 3),
+                  BoxShadow(color: ColorManager.primary, spreadRadius: 0, blurRadius: 3),
                 ],
               ),
               padding: const EdgeInsets.all(15),
@@ -48,9 +49,9 @@ class _RequestCustomerViewState extends State<RequestCustomerView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   JoJoText(
-                    "Pending to Accept",
+                    "Assigned Ride - Customer to Shop",
                     style: getBoldStyle(
-                        color: ColorManager.linkText, fontSize: FontSize.s18),
+                        color: ColorManager.primary, fontSize: FontSize.s18),
                   ),
                   const SizedBox(
                     height: 10,
@@ -63,21 +64,6 @@ class _RequestCustomerViewState extends State<RequestCustomerView> {
                               color: ColorManager.grey,
                               fontSize: FontSize.s16)),
                       JoJoText("23456789",
-                          style: getBoldStyle(
-                              color: ColorManager.grey, fontSize: FontSize.s16))
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      JoJoText("Distance from You",
-                          style: getRegularStyle(
-                              color: ColorManager.grey,
-                              fontSize: FontSize.s16)),
-                      JoJoText("12.5KM",
                           style: getBoldStyle(
                               color: ColorManager.grey, fontSize: FontSize.s16))
                     ],
@@ -126,16 +112,17 @@ class _RequestCustomerViewState extends State<RequestCustomerView> {
                   const SizedBox(
                     height: 15,
                   ),
-                  JoJoText("Notes",
-                      style: getBoldStyle(
-                          color: ColorManager.grey, fontSize: FontSize.s18)),
-                  const SizedBox(
-                    height: 5,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      JoJoBtn(
+                          text: "Navigate",
+                          onPressed: () {},
+                          color: ColorManager.primary,
+                          isBlock: false,
+                          radius: 15),
+                    ],
                   ),
-                  JoJoText(
-                      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae",
-                      style: getRegularStyle(
-                          color: ColorManager.grey, fontSize: FontSize.s14)),
                   const SizedBox(
                     height: 25,
                   ),
@@ -206,7 +193,7 @@ class _RequestCustomerViewState extends State<RequestCustomerView> {
                       context: context,
                       isOpen: dropdownPetOpen,
                       handleOpen: handleDropDownPet,
-                    assignedStatus: Constants.pending,
+                    assignedStatus: Constants.accept,
                   ),
                   const SizedBox(
                     height: 25,
@@ -279,7 +266,7 @@ class _RequestCustomerViewState extends State<RequestCustomerView> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),
                       elevation: 0,
-                      child: JoJoText("Accept",
+                      child: JoJoText("Pick Up",
                           isCenter: true,
                           style: getBoldStyle(color: ColorManager.white)),
                     ),

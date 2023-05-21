@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:jojo_taxi/components/customs/jojo_image.dart';
 import 'package:jojo_taxi/components/jojo_text.dart';
+import 'package:jojo_taxi/persentation/home/deliveries/deliveries_customer_view.dart';
 import 'package:jojo_taxi/persentation/home/deliveries/request_customer_view.dart';
 import 'package:jojo_taxi/persentation/resources/assests_manager.dart';
 import 'package:jojo_taxi/persentation/resources/color_manager.dart';
@@ -19,7 +20,7 @@ class _DeliveriesOnlineViewState extends State<DeliveriesOnlineView> {
   bool loading = false;
   @override
   Widget build(BuildContext context) {
-    return !loading ? const RequestCustomerView() : Expanded(
+    return !loading ? const DeliveriesCustomerView() : Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

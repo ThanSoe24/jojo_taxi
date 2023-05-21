@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:jojo_taxi/components/btn/jojo_btn.dart';
 import 'package:jojo_taxi/components/customs/jojo_image.dart';
 import 'package:jojo_taxi/components/jojo_text.dart';
 import 'package:jojo_taxi/persentation/resources/assests_manager.dart';
@@ -7,12 +7,21 @@ import 'package:jojo_taxi/persentation/resources/color_manager.dart';
 import 'package:jojo_taxi/persentation/resources/font_manager.dart';
 import 'package:jojo_taxi/persentation/resources/style_manager.dart';
 import 'package:jojo_taxi/persentation/resources/value_manager.dart';
+import 'package:jojo_taxi/utilities/constants.dart';
 
 class JoJoDropdownPet extends StatelessWidget {
   final BuildContext context;
   final bool isOpen;
   final Function() handleOpen;
-  const JoJoDropdownPet({required this.context,required this.isOpen,required this.handleOpen,Key? key}) : super(key: key);
+  final String assignedStatus;
+
+  const JoJoDropdownPet(
+      {required this.context,
+      required this.isOpen,
+      required this.handleOpen,
+      required this.assignedStatus,
+      Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,10 +70,22 @@ class JoJoDropdownPet extends StatelessWidget {
             ],
           ),
         ),
-        isOpen ? petCard() : const SizedBox()
+        isOpen ? petCard() : const SizedBox(),
+        SizedBox(
+          height: isOpen && assignedStatus == Constants.accept ? 20 : 0,
+        ),
+        isOpen && assignedStatus == Constants.accept
+            ? Center(
+              child: JoJoBtn(
+                  text: "Change Pet Size",
+                  onPressed: () {},
+                  color: ColorManager.linkText.withOpacity(0.6), isBlock: false, height: 45,),
+            )
+            : const SizedBox()
       ],
     );
   }
+
   Widget petCard() {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
@@ -126,13 +147,16 @@ class JoJoDropdownPet extends StatelessWidget {
                       ),
                       JoJoText("Dog",
                           style: getRegularStyle(
-                              color: ColorManager.grey, fontSize: FontSize.s14)),
+                              color: ColorManager.grey,
+                              fontSize: FontSize.s14)),
                       JoJoText("Corgi",
                           style: getRegularStyle(
-                              color: ColorManager.grey, fontSize: FontSize.s14)),
+                              color: ColorManager.grey,
+                              fontSize: FontSize.s14)),
                       JoJoText("Small",
                           style: getRegularStyle(
-                              color: ColorManager.grey, fontSize: FontSize.s14)),
+                              color: ColorManager.grey,
+                              fontSize: FontSize.s14)),
                     ],
                   ),
                 ),
