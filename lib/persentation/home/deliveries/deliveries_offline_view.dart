@@ -19,15 +19,17 @@ class _DeliveriesOfflineViewState extends State<DeliveriesOfflineView> {
   Widget build(BuildContext context) {
     return Expanded(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          JoJoText("Waiting For A Ride",
+          const SizedBox(height: 60,),
+          JoJoText("You are Offline",
               style: getBoldStyle(
-                  color: ColorManager.primary, fontSize: FontSize.s24)),
+                  color: ColorManager.grey2, fontSize: FontSize.s24)),
+          const SizedBox(height: 30,),
           const JoJoImage(
-              width: double.infinity,
-              height: 450,
-              imageUrl: ImageAssets.welcomeImage)
+              width: 300,
+              height: 300,
+              imageUrl: ImageAssets.jojoLogo)
         ],
       ),
     );

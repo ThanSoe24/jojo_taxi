@@ -16,10 +16,10 @@ class DeliveriesOnlineView extends StatefulWidget {
 }
 
 class _DeliveriesOnlineViewState extends State<DeliveriesOnlineView> {
-  bool loading = true;
+  bool loading = false;
   @override
   Widget build(BuildContext context) {
-    return loading ? const RequestCustomerView() : Expanded(
+    return !loading ? const RequestCustomerView() : Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

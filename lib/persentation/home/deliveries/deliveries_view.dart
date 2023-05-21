@@ -68,7 +68,7 @@ class _DeliveriesViewState extends State<DeliveriesView> {
                 onChanged: toggleSwitch,
                 activeColor: ColorManager.primary,
                 activeTrackColor: ColorManager.grey2.withOpacity(0.4),
-                inactiveThumbColor: ColorManager.grey2,
+                inactiveThumbColor: ColorManager.primary,
                 inactiveTrackColor: ColorManager.grey2.withOpacity(0.4),
               ),
             ),
