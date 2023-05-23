@@ -10,7 +10,10 @@ import 'package:jojo_taxi/persentation/resources/style_manager.dart';
 import 'package:jojo_taxi/utilities/constants.dart';
 
 class RequestCustomerView extends StatefulWidget {
-  const RequestCustomerView({Key? key}) : super(key: key);
+  final Function() handleAccept;
+
+  const RequestCustomerView({required this.handleAccept, Key? key})
+      : super(key: key);
 
   @override
   State<RequestCustomerView> createState() => _RequestCustomerViewState();
@@ -33,12 +36,12 @@ class _RequestCustomerViewState extends State<RequestCustomerView> {
           children: [
             Container(
               width: double.infinity,
-              margin: const EdgeInsets.symmetric(horizontal: 16,vertical: 5),
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
                 boxShadow: [
-                  BoxShadow(color: ColorManager.linkText,blurRadius: 3),
+                  BoxShadow(color: ColorManager.linkText, blurRadius: 3),
                 ],
               ),
               padding: const EdgeInsets.all(15),
@@ -203,9 +206,9 @@ class _RequestCustomerViewState extends State<RequestCustomerView> {
                     height: 5,
                   ),
                   JoJoDropdownPet(
-                      context: context,
-                      isOpen: dropdownPetOpen,
-                      handleOpen: handleDropDownPet,
+                    context: context,
+                    isOpen: dropdownPetOpen,
+                    handleOpen: handleDropDownPet,
                     assignedStatus: Constants.pending,
                   ),
                   const SizedBox(
@@ -274,7 +277,7 @@ class _RequestCustomerViewState extends State<RequestCustomerView> {
                     width: MediaQuery.of(context).size.width / 2.8,
                     child: MaterialButton(
                       height: 45,
-                      onPressed: () {},
+                      onPressed: widget.handleAccept,
                       color: ColorManager.primary,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),

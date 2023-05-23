@@ -14,12 +14,14 @@ class JoJoDropdownPet extends StatelessWidget {
   final bool isOpen;
   final Function() handleOpen;
   final String assignedStatus;
+  final Function()? handleChangePet;
 
   const JoJoDropdownPet(
       {required this.context,
       required this.isOpen,
       required this.handleOpen,
       required this.assignedStatus,
+      this.handleChangePet,
       Key? key})
       : super(key: key);
 
@@ -76,11 +78,14 @@ class JoJoDropdownPet extends StatelessWidget {
         ),
         isOpen && assignedStatus == Constants.accept
             ? Center(
-              child: JoJoBtn(
+                child: JoJoBtn(
                   text: "Change Pet Size",
-                  onPressed: () {},
-                  color: ColorManager.linkText.withOpacity(0.6), isBlock: false, height: 45,),
-            )
+                  onPressed: () => {handleChangePet!()},
+                  color: ColorManager.linkText.withOpacity(0.6),
+                  isBlock: false,
+                  height: 45,
+                ),
+              )
             : const SizedBox()
       ],
     );

@@ -12,10 +12,16 @@ class DeliveriesCustomerView extends StatefulWidget {
 }
 
 class _DeliveriesCustomerViewState extends State<DeliveriesCustomerView> {
-  bool isAccept = true;
+  bool isAccept = false;
+
+  void handleAccept(){
+    setState(() {
+      isAccept = !isAccept;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return isAccept ? const AcceptCustomerView() : const RequestCustomerView();
+    return isAccept ? const AcceptCustomerView() : RequestCustomerView(handleAccept: handleAccept,);
   }
 }

@@ -6,6 +6,7 @@ class JoJoImage extends StatelessWidget {
   final BoxFit fit;
   final Color? color;
   final bool? isOnline;
+  final bool? isCircle;
 
   const JoJoImage(
       {Key? key,
@@ -14,18 +15,22 @@ class JoJoImage extends StatelessWidget {
       this.fit = BoxFit.contain,
       this.color,
       required this.imageUrl,
-      this.isOnline = false})
+      this.isOnline = false,
+      this.isCircle = false})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return isOnline == false
-        ? Image.asset(
-            imageUrl,
-            height: height,
-            width: width,
-            fit: fit,
-            color: color,
+        ? ClipRRect(
+            borderRadius: BorderRadius.circular(isCircle == false ? 0 : 100),
+            child: Image.asset(
+              imageUrl,
+              height: height,
+              width: width,
+              fit: fit,
+              color: color,
+            ),
           )
         : Image.network(
             imageUrl,
