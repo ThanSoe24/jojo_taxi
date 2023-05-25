@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jojo_taxi/components/btn/jojo_btn.dart';
 import 'package:jojo_taxi/components/jojo_text.dart';
 import 'package:jojo_taxi/persentation/resources/color_manager.dart';
 import 'package:jojo_taxi/persentation/resources/font_manager.dart';
 import 'package:jojo_taxi/persentation/resources/style_manager.dart';
-import 'package:jojo_taxi/persentation/resources/value_manager.dart';
-import 'package:jojo_taxi/utilities/constants.dart';
 
 class JoJoConfirmDialog extends StatelessWidget {
   final BuildContext context;

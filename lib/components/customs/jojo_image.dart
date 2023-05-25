@@ -23,7 +23,7 @@ class JoJoImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return isOnline == false
         ? ClipRRect(
-            borderRadius: BorderRadius.circular(isCircle == false ? 0 : 100),
+            borderRadius: BorderRadius.circular(isCircle == false ? 18 : 100),
             child: Image.asset(
               imageUrl,
               height: height,

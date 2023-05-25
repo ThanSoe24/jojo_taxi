@@ -1,4 +1,6 @@
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:jojo_taxi/components/customs/jojo_image.dart';
 import 'package:jojo_taxi/components/jojo_text.dart';
@@ -17,7 +19,20 @@ class DeliveriesOnlineView extends StatefulWidget {
 }
 
 class _DeliveriesOnlineViewState extends State<DeliveriesOnlineView> {
-  bool loading = false;
+  bool loading = true;
+
+  @override
+  void initState() {
+    getLoading();
+    super.initState();
+  }
+  void getLoading(){
+    Timer(
+        const Duration(seconds: 3),
+            () => setState(() {
+              loading = false;
+            }));
+  }
   @override
   Widget build(BuildContext context) {
     return !loading ? const DeliveriesCustomerView() : Expanded(

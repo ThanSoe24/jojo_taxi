@@ -9,7 +9,7 @@ import 'package:jojo_taxi/utilities/currency_input_formatter.dart';
 class JoJoTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hint;
-  final int maximumCount;
+  final int maximumCount,minLine;
   final Widget trailing, leading;
   final bool isPass,
       isLeading,
@@ -38,6 +38,7 @@ class JoJoTextField extends StatelessWidget {
       this.isShowCount = false,
         this.isSmall = false,
       this.maximumCount = 50,
+        this.minLine= 1,
       this.isEnabled = true,
       this.trailing = const SizedBox(),
       this.leading = const SizedBox(),

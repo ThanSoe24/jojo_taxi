@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jojo_taxi/components/customs/jojo_dropdown_pet.dart';
 import 'package:jojo_taxi/components/customs/jojo_image.dart';
 import 'package:jojo_taxi/components/customs/jojo_info_list.dart';
+import 'package:jojo_taxi/components/customs/jojo_reject_dialog.dart';
 import 'package:jojo_taxi/components/jojo_text.dart';
 import 'package:jojo_taxi/persentation/resources/assests_manager.dart';
 import 'package:jojo_taxi/persentation/resources/color_manager.dart';
@@ -21,6 +22,7 @@ class RequestCustomerView extends StatefulWidget {
 
 class _RequestCustomerViewState extends State<RequestCustomerView> {
   bool dropdownPetOpen = false;
+  TextEditingController reasonController = TextEditingController();
 
   void handleDropDownPet() {
     setState(() {
@@ -291,7 +293,13 @@ class _RequestCustomerViewState extends State<RequestCustomerView> {
                     width: MediaQuery.of(context).size.width / 2.8,
                     child: MaterialButton(
                       height: 45,
-                      onPressed: () {},
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (_) => JoJoRejectDialog(
+                                context: context,
+                                controller: reasonController));
+                      },
                       color: ColorManager.white,
                       shape: RoundedRectangleBorder(
                         side: BorderSide(color: ColorManager.lightGrey),
