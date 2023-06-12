@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:jojo_taxi/components/btn/jojo_list_btn.dart';
 import 'package:jojo_taxi/components/customs/jojo_confirm_dialog.dart';
+import 'package:jojo_taxi/components/customs/jojo_dialog.dart';
 import 'package:jojo_taxi/components/customs/jojo_image.dart';
+import 'package:jojo_taxi/domain/repository/auth_repository.dart';
 import 'package:jojo_taxi/persentation/home/deliveries/deliveries_view.dart';
 import 'package:jojo_taxi/persentation/resources/assests_manager.dart';
 import 'package:jojo_taxi/persentation/resources/color_manager.dart';
 import 'package:jojo_taxi/persentation/resources/font_manager.dart';
 import 'package:jojo_taxi/persentation/resources/routes_manager.dart';
 import 'package:jojo_taxi/utilities/constants.dart';
+import 'package:provider/provider.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -17,7 +20,25 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  void logOutHandler(BuildContext context) {
+    Provider.of<AuthRepository>(context, listen: false)
+        .logout()
+        .then(_onSuccess)
+        .catchError(_onError);
+  }
 
+  void _onSuccess(value) async {
+    Navigator.pushReplacementNamed(context, Routes.loginRoute);
+  }
+
+  void _onError(value) {
+    showDialog(
+        context: context,
+        builder: (_) => JoJoDialog(
+            context: context,
+            message: "Please Try Again",
+            type: Constants.error));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,72 +73,69 @@ class _HomeViewState extends State<HomeView> {
         ));
   }
 
-
   Widget myAccountWidget(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
           child: Column(
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              const JoJoImage(
-                  width: 150, height: 150, imageUrl: ImageAssets.jojoWhiteLogo),
-              const SizedBox(
-                height: 30,
-              ),
-              JoJoListBtn(
-                  onPressed: () =>
+        children: [
+          const SizedBox(
+            height: 20,
+          ),
+          const JoJoImage(
+              width: 150, height: 150, imageUrl: ImageAssets.jojoWhiteLogo),
+          const SizedBox(
+            height: 30,
+          ),
+          JoJoListBtn(
+              onPressed: () =>
                   {Navigator.pushNamed(context, Routes.editMyDetailRoute)},
-                  text: "Edit My Detail"),
-              JoJoListBtn(
-                  onPressed: () =>
+              text: "Edit My Detail"),
+          JoJoListBtn(
+              onPressed: () =>
                   {Navigator.pushNamed(context, Routes.changePassRoute)},
-                  text: "Change Password"),
-              JoJoListBtn(
-                  onPressed: () =>
+              text: "Change Password"),
+          JoJoListBtn(
+              onPressed: () =>
                   {Navigator.pushNamed(context, Routes.capacityRoute)},
-                  text: "Capacity"),
-              JoJoListBtn(
-                  onPressed: () =>
+              text: "Capacity"),
+          JoJoListBtn(
+              onPressed: () =>
                   {Navigator.pushNamed(context, Routes.incentivesRoute)},
-                  text: "Incentives"),
-              JoJoListBtn(
-                  onPressed: () =>
+              text: "Incentives"),
+          JoJoListBtn(
+              onPressed: () =>
                   {Navigator.pushNamed(context, Routes.eLearningRoute)},
-                  text: "E-Learning"),
-              JoJoListBtn(
-                  onPressed: () =>
+              text: "E-Learning"),
+          JoJoListBtn(
+              onPressed: () =>
                   {Navigator.pushNamed(context, Routes.historyRoute)},
-                  text: "History"),
-              JoJoListBtn(
-                  onPressed: () =>
-                  {
-                    Navigator.pushNamed(context, Routes.faqRoute)
-                  },
-                  text: "FAQ"),
-              JoJoListBtn(
-                  onPressed: () =>
+              text: "History"),
+          JoJoListBtn(
+              onPressed: () => {Navigator.pushNamed(context, Routes.faqRoute)},
+              text: "FAQ"),
+          JoJoListBtn(
+              onPressed: () =>
                   {Navigator.pushNamed(context, Routes.termsConditionsRoute)},
-                  text: "Terms & Conditions"),
-              JoJoListBtn(
-                  onPressed: () =>
+              text: "Terms & Conditions"),
+          JoJoListBtn(
+              onPressed: () =>
                   {Navigator.pushNamed(context, Routes.aboutRoute)},
-                  text: "About"),
-              JoJoListBtn(onPressed: () {
+              text: "About"),
+          JoJoListBtn(
+              onPressed: () {
                 showDialog(
                     context: context,
                     builder: (_) => JoJoConfirmDialog(
-                      title: "Logout",
-                      context: context,
-                      message:
-                      "Are you sure, you want to logout ?",
-                      type: Constants.error,
-                      action: () {},
-                    ));
-              }, text: "Logout"),
-            ],
-          )),
+                          title: "Logout",
+                          context: context,
+                          message: "Are you sure, you want to logout ?",
+                          type: Constants.error,
+                          action: () {logOutHandler(context);},
+                        ));
+              },
+              text: "Logout"),
+        ],
+      )),
     );
   }
 }

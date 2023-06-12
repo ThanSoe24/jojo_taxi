@@ -30,7 +30,7 @@ class _SplashViewState extends State<SplashView> {
         (auth) => Timer(
             const Duration(seconds: 3),
             () => Navigator.pushReplacementNamed(
-                context, auth ? Routes.loginRoute : Routes.loginRoute)));
+                context, auth ? Routes.homeRoute : Routes.loginRoute)));
   }
 
   @override

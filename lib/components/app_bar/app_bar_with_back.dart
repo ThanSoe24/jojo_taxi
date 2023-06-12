@@ -4,7 +4,7 @@ import 'package:jojo_taxi/persentation/resources/color_manager.dart';
 import 'package:jojo_taxi/persentation/resources/font_manager.dart';
 import 'package:jojo_taxi/persentation/resources/style_manager.dart';
 
-class AppBarWithBack extends StatelessWidget with PreferredSizeWidget {
+class AppBarWithBack extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Function() onBack;
   final bool isCenter;
