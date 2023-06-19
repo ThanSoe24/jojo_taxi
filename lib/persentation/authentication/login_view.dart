@@ -68,57 +68,59 @@ class _LoginViewState extends State<LoginView> {
       body: SafeArea(
         child: Form(
           key: _formKey,
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                const JoJoImage(
-                  width: 150,
-                  height: 150,
-                  imageUrl: ImageAssets.jojoLogo,
-                  fit: BoxFit.cover,
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                JoJoText("Welcome",
-                    style: getBoldStyle(
-                        color: ColorManager.primary, fontSize: FontSize.s24)),
-                const SizedBox(
-                  height: 40,
-                ),
-                JoJoTextField(
-                    controller: _phoneController,
-                    hint: "Phone No*",
-                    isDigit: true,
-                    validationBuilder: ValidationBuilder().phone()),
-                const SizedBox(
-                  height: 20,
-                ),
-                JoJoTextField(
-                    controller: _passwordController,
-                    hint: "Password*",
-                    isDigit: true,
-                    validationBuilder: ValidationBuilder().phone()),
-                Align(
-                    alignment: Alignment.bottomRight,
-                    child: JoJoTextBtn(
-                      text: "Forgot Password",
-                      onPressed: () => {forgotHandler(context)},
-                    )),
-                const SizedBox(
-                  height: 60,
-                ),
-                JoJoBtn(
-                  onPressed: () => {signInHandler(context)},
-                  text: "Sign In",
-                  color: ColorManager.primary,
-                  radius: 50,
-                )
-              ],
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  const JoJoImage(
+                    width: 150,
+                    height: 150,
+                    imageUrl: ImageAssets.jojoLogo,
+                    fit: BoxFit.cover,
+                  ),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  JoJoText("Welcome",
+                      style: getBoldStyle(
+                          color: ColorManager.primary, fontSize: FontSize.s24)),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  JoJoTextField(
+                      controller: _phoneController,
+                      hint: "Phone No*",
+                      isDigit: true,
+                      validationBuilder: ValidationBuilder().phone()),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  JoJoTextField(
+                      controller: _passwordController,
+                      hint: "Password*",
+                      isDigit: true,
+                      validationBuilder: ValidationBuilder().phone()),
+                  Align(
+                      alignment: Alignment.bottomRight,
+                      child: JoJoTextBtn(
+                        text: "Forgot Password",
+                        onPressed: () => {forgotHandler(context)},
+                      )),
+                  const SizedBox(
+                    height: 60,
+                  ),
+                  JoJoBtn(
+                    onPressed: () => {signInHandler(context)},
+                    text: "Sign In",
+                    color: ColorManager.primary,
+                    radius: 50,
+                  )
+                ],
+              ),
             ),
           ),
         ),

@@ -17,6 +17,11 @@ class EditMyDetailView extends StatefulWidget {
 
 class _EditMyDetailViewState extends State<EditMyDetailView> {
   final TextEditingController _mobileController = TextEditingController();
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _vehicleController = TextEditingController();
+  final TextEditingController _vehicleColorController = TextEditingController();
+  final TextEditingController _plateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,80 +37,82 @@ class _EditMyDetailViewState extends State<EditMyDetailView> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.max,
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                JoJoImage(
-                    width: 150,
-                    height: 150,
-                    imageUrl: ImageAssets.jojoWhiteLogo),
-                JoJoTextBtn(text: "Edit Picture", onPressed: (){}),
-                SizedBox(height: 15,),
-                JoJoTextField(
-                    controller: _mobileController,
-                    hint: "Mobile*",
-                    validationBuilder: ValidationBuilder().phone()),
-                const SizedBox(
-                  height: 15,
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const JoJoImage(
+                        width: 150,
+                        height: 150,
+                        imageUrl: ImageAssets.jojoWhiteLogo),
+                    JoJoTextBtn(text: "Edit Picture", onPressed: (){}),
+                    const SizedBox(height: 15,),
+                    JoJoTextField(
+                        controller: _mobileController,
+                        hint: "Mobile*",
+                        validationBuilder: ValidationBuilder().phone()),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    JoJoTextField(
+                        controller: _fullNameController,
+                        hint: "Full Name as per IC*",
+                        validationBuilder: ValidationBuilder().phone()),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    JoJoTextField(
+                        controller: _emailController,
+                        hint: "Email*",
+                        validationBuilder: ValidationBuilder().phone()),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    JoJoTextField(
+                        controller: _vehicleController,
+                        hint: "Vehicle Model*",
+                        validationBuilder: ValidationBuilder().phone()),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    JoJoTextField(
+                        controller: _vehicleColorController,
+                        hint: "Vehicle Colour*",
+                        validationBuilder: ValidationBuilder().phone()),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    JoJoTextField(
+                        controller: _plateController,
+                        hint: "Plate Number*",
+                        validationBuilder: ValidationBuilder().phone()),
+                  ],
                 ),
-                JoJoTextField(
-                    controller: _mobileController,
-                    hint: "Full Name as per IC*",
-                    validationBuilder: ValidationBuilder().phone()),
-                const SizedBox(
-                  height: 15,
-                ),
-                JoJoTextField(
-                    controller: _mobileController,
-                    hint: "Email*",
-                    validationBuilder: ValidationBuilder().phone()),
-                const SizedBox(
-                  height: 15,
-                ),
-                JoJoTextField(
-                    controller: _mobileController,
-                    hint: "Vehicle Model*",
-                    validationBuilder: ValidationBuilder().phone()),
-                const SizedBox(
-                  height: 15,
-                ),
-                JoJoTextField(
-                    controller: _mobileController,
-                    hint: "Vehicle Colour*",
-                    validationBuilder: ValidationBuilder().phone()),
-                const SizedBox(
-                  height: 15,
-                ),
-                JoJoTextField(
-                    controller: _mobileController,
-                    hint: "Plate Number*",
-                    validationBuilder: ValidationBuilder().phone()),
-              ],
-            ),
-            Container(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  JoJoBtn(
-                    text: "Save",
-                    onPressed: () {},
-                    color: ColorManager.primary,
-                    isBlock: false,
-                    radius: 50,
-                  ),
-                  JoJoBtn(
-                    text: "Cancel",
-                    onPressed: () {},
-                    color: ColorManager.white,
-                    isBlock: false,
-                    radius: 50,
-                    elevation: 1,
-                  )
-                ],
               ),
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                JoJoBtn(
+                  text: "Save",
+                  onPressed: () {},
+                  color: ColorManager.primary,
+                  isBlock: false,
+                  radius: 50,
+                ),
+                JoJoBtn(
+                  text: "Cancel",
+                  onPressed: () {},
+                  color: ColorManager.white,
+                  isBlock: false,
+                  radius: 50,
+                  elevation: 1,
+                )
+              ],
             )
           ],
         ),
