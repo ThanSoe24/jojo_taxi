@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:jojo_taxi/components/app_bar/app_bar_with_back.dart';
-import 'package:jojo_taxi/components/jojo_text.dart';
+import 'package:jojo_taxi/domain/repository/general_repository.dart';
 import 'package:jojo_taxi/persentation/resources/color_manager.dart';
-import 'package:jojo_taxi/persentation/resources/font_manager.dart';
-import 'package:jojo_taxi/persentation/resources/style_manager.dart';
-import 'package:jojo_taxi/utilities/constants.dart';
+import 'package:provider/provider.dart';
 
 class AboutView extends StatefulWidget {
   const AboutView({Key? key}) : super(key: key);
@@ -15,7 +13,23 @@ class AboutView extends StatefulWidget {
 }
 
 class _AboutViewState extends State<AboutView> {
-  static const htmlData = r"""<h1>Hello</h1>""";
+  String htmlData = "";
+
+  @override
+  void initState() {
+    getAboutData();
+    super.initState();
+  }
+
+  void getAboutData() {
+    Provider.of<GeneralRepository>(context, listen: false)
+        .fetchAbout()
+        .then((value) {
+      setState(() {
+        htmlData = value!;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

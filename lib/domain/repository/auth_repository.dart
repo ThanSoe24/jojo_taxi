@@ -81,9 +81,9 @@ class AuthRepository with ChangeNotifier {
             headers: await getAuthHeader(),
             body: json.encode(passwordModal.toJson()))
         .then((value) {
-          print(value.body);
-          _baseModal = BaseModal.fromJson(
-          json.decode(utf8.decode(value.bodyBytes)));
+      print(value.body);
+      _baseModal =
+          BaseModal.fromJson(json.decode(utf8.decode(value.bodyBytes)));
       if (_baseModal?.errorModal?.code == 0) {
         ExceptionHandler.httpExceptionHandle(
             value.statusCode, "Successful Change Password");
@@ -101,9 +101,7 @@ class AuthRepository with ChangeNotifier {
     return post(uri, headers: await getAuthHeader(), body: json.encode(""))
         .then((value) {
       var response = json.decode(utf8.decode(value.bodyBytes));
-
-      baseModal = BaseModal.fromJson(
-          json.decode(utf8.decode(value.bodyBytes)));
+      baseModal = BaseModal.fromJson(response);
       if (baseModal?.errorModal?.code == 0) {
         _token = null;
         _removeFromDevice();
