@@ -88,16 +88,24 @@ class _HomeViewState extends State<HomeView> {
           ),
           JoJoListBtn(
               onPressed: () =>
-                  {Navigator.pushNamed(context, Routes.editMyDetailRoute)},
-              text: "Edit My Detail"),
+                  {Navigator.pushNamed(context, Routes.myDetailRoute)},
+              text: "Profile"),
           JoJoListBtn(
               onPressed: () =>
                   {Navigator.pushNamed(context, Routes.changePassRoute)},
               text: "Change Password"),
           JoJoListBtn(
               onPressed: () =>
-                  {Navigator.pushNamed(context, Routes.capacityRoute)},
-              text: "Capacity"),
+              {Navigator.pushNamed(context, Routes.capacityRoute)},
+              text: "Bank Account"),
+          JoJoListBtn(
+              onPressed: () =>
+              {Navigator.pushNamed(context, Routes.earningRoute)},
+              text: "Earning"),
+          JoJoListBtn(
+              onPressed: () =>
+              {Navigator.pushNamed(context, Routes.creditWalletRoute)},
+              text: "Credit Wallet"),
           JoJoListBtn(
               onPressed: () =>
                   {Navigator.pushNamed(context, Routes.incentivesRoute)},

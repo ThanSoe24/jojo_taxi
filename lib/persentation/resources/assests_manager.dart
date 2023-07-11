@@ -30,4 +30,7 @@ class ImageAssets {
   static const String sedanCarIcon = "$IMAGE_PATH/sedan_car.png";
   static const String suvIcon = "$IMAGE_PATH/suv.png";
 
+  //Profile
+  static const String profileIcon = "$IMAGE_PATH/profile.png";
+
 }

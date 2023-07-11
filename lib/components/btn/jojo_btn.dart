@@ -12,6 +12,7 @@ class JoJoBtn extends StatelessWidget {
   final double radius;
   final double height;
   final double elevation;
+  final bool isLeft;
 
   const JoJoBtn(
       {Key? key,
@@ -24,7 +25,9 @@ class JoJoBtn extends StatelessWidget {
         this.isBlock = true,
       this.isDisable = false,
         this.elevation = 0,
-      required this.color})
+      required this.color,
+        this.isLeft = false,
+      })
       : super(key: key);
 
   @override
@@ -45,16 +48,24 @@ class JoJoBtn extends StatelessWidget {
         borderRadius: BorderRadius.circular(radius),
       ),
       color: color,
-      child: JoJoText(text,
-          style: getBoldStyle(
-              color: isDisable
-                  ? ColorManager.primaryOpacity70
-                  : textColor == Colors.white
-                      ? color == Colors.white
-                          ? ColorManager.grey
-                          : Colors.white
-                      : textColor,
-              fontSize: FontSize.s16)),
+      child: Row(
+        mainAxisAlignment:isLeft ? MainAxisAlignment.start :  MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: JoJoText(text,
+                style: getBoldStyle(
+                    color: isDisable
+                        ? ColorManager.primaryOpacity70
+                        : textColor == Colors.white
+                            ? color == Colors.white
+                                ? ColorManager.grey
+                                : Colors.white
+                            : textColor,
+                    fontSize: FontSize.s16)),
+          ),
+        ],
+      ),
     );
   }
 }
