@@ -8,11 +8,11 @@ import 'package:jojo_taxi/components/customs/jojo_reject_dialog.dart';
 import 'package:jojo_taxi/components/deliveries/take_photo_dialog.dart';
 import 'package:jojo_taxi/components/jojo_text.dart';
 import 'package:jojo_taxi/persentation/home/deliveries/change_pet_size_view.dart';
-import 'package:jojo_taxi/persentation/home/deliveries/pay_cost_view.dart';
 import 'package:jojo_taxi/persentation/home/deliveries/take_photo_view.dart';
 import 'package:jojo_taxi/persentation/resources/assests_manager.dart';
 import 'package:jojo_taxi/persentation/resources/color_manager.dart';
 import 'package:jojo_taxi/persentation/resources/font_manager.dart';
+import 'package:jojo_taxi/persentation/resources/routes_manager.dart';
 import 'package:jojo_taxi/persentation/resources/style_manager.dart';
 import 'package:jojo_taxi/utilities/constants.dart';
 
@@ -147,7 +147,7 @@ class _AcceptCustomerViewState extends State<AcceptCustomerView> {
                 children: [
                   JoJoBtn(
                       text: "Navigate",
-                      onPressed: () {},
+                      onPressed: () {Navigator.pushNamed(context, Routes.mapRoute);},
                       color: ColorManager.primary,
                       isBlock: false,
                       radius: 15),

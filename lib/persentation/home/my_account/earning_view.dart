@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jojo_taxi/components/btn/jojo_btn.dart';
+import 'package:jojo_taxi/components/customs/jojo_image.dart';
 import 'package:jojo_taxi/components/jojo_text.dart';
+import 'package:jojo_taxi/persentation/resources/assests_manager.dart';
 import 'package:jojo_taxi/persentation/resources/font_manager.dart';
 import 'package:jojo_taxi/persentation/resources/style_manager.dart';
 
@@ -38,7 +40,6 @@ class _EarningViewState extends State<EarningView> {
                     borderRadius: BorderRadius.circular(20),
                     color: ColorManager.white),
                 child: Container(
-                  height: 200,
                   width: double.infinity,
                   padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
@@ -47,16 +48,11 @@ class _EarningViewState extends State<EarningView> {
                       color: ColorManager.white),
                   child: Column(
                     children: [
-                      const SizedBox(
-                        height: 5,
-                      ),
+                      const JoJoImage(width: 140, height: 80, imageUrl: ImageAssets.earningIcon),
                       JoJoText("Cash Balance",
                           style: getBoldStyle(
                               color: ColorManager.grey2,
                               fontSize: FontSize.s16)),
-                      const SizedBox(
-                        height: 5,
-                      ),
                       JoJoText("303.50",
                           style: getBoldStyle(
                               color: ColorManager.grey1,

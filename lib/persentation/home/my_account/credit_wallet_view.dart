@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../components/app_bar/app_bar_with_back.dart';
 import '../../../components/btn/jojo_btn.dart';
+import '../../../components/customs/jojo_image.dart';
 import '../../../components/jojo_text.dart';
+import '../../resources/assests_manager.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/font_manager.dart';
 import '../../resources/style_manager.dart';
@@ -38,7 +40,6 @@ class _CreditWalletViewState extends State<CreditWalletView> {
                     borderRadius: BorderRadius.circular(20),
                     color: ColorManager.white),
                 child: Container(
-                  height: 200,
                   width: double.infinity,
                   padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
@@ -47,6 +48,7 @@ class _CreditWalletViewState extends State<CreditWalletView> {
                       color: ColorManager.white),
                   child: Column(
                     children: [
+                      const JoJoImage(width: 100, height: 90, imageUrl: ImageAssets.creditWalletIcon),
                       const SizedBox(
                         height: 5,
                       ),
@@ -54,44 +56,13 @@ class _CreditWalletViewState extends State<CreditWalletView> {
                           style: getBoldStyle(
                               color: ColorManager.grey2,
                               fontSize: FontSize.s16)),
-                      const SizedBox(
-                        height: 5,
-                      ),
                       JoJoText("30.00",
                           style: getBoldStyle(
                               color: ColorManager.grey1,
                               fontSize: FontSize.s24)),
-                      // const SizedBox(height: 10,),
-                      // Container(
-                      //   padding: const EdgeInsets.all(10),
-                      //   decoration: BoxDecoration(
-                      //       borderRadius: BorderRadius.circular(10),
-                      //       border: Border.all(color: ColorManager.linkText.withOpacity(0.1)),
-                      //       color: ColorManager.white),
-                      //   child: Row(
-                      //     mainAxisSize: MainAxisSize.min,
-                      //     mainAxisAlignment: MainAxisAlignment.center,
-                      //     children: [
-                      //       JoJoText("Transferable Balance:",
-                      //           style: getBoldStyle(
-                      //               color: ColorManager.grey1,
-                      //               fontSize: FontSize.s12)),
-                      //       const SizedBox(width: 10,),
-                      //       JoJoText("303.50",
-                      //           style: getBoldStyle(
-                      //               color: ColorManager.grey1,
-                      //               fontSize: FontSize.s12)),
-                      //       const SizedBox(width: 20,),
-                      //       Icon(
-                      //         Icons.arrow_forward_ios,
-                      //         color: ColorManager.grey1,
-                      //         size: 10,
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
+
                       const SizedBox(
-                        height: 30,
+                        height: 20,
                       ),
                     ],
                   ),

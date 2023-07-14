@@ -60,7 +60,7 @@ class _CapacityViewState extends State<CapacityView> {
         backgroundColor: ColorManager.white,
         appBar: AppBarWithBack(
             onBack: () => {Navigator.pop(context)}, title: "Bank Account"),
-        body: SafeArea(
+        body: const SafeArea(
           child: JoJoComingSoon()
         ),
       ),

@@ -4,6 +4,7 @@ import 'package:jojo_taxi/persentation/authentication/forgot_password_view.dart'
 import 'package:jojo_taxi/persentation/authentication/login_view.dart';
 import 'package:jojo_taxi/persentation/authentication/new_password_view.dart';
 import 'package:jojo_taxi/persentation/authentication/otp_view.dart';
+import 'package:jojo_taxi/persentation/home/deliveries/map_view.dart';
 import 'package:jojo_taxi/persentation/home/home_view.dart';
 import 'package:jojo_taxi/persentation/home/my_account/about_view.dart';
 import 'package:jojo_taxi/persentation/home/my_account/capacity_view.dart';
@@ -40,6 +41,7 @@ class Routes {
   static const String termsConditionsRoute = "/home/my_account/termsConditions";
   static const String aboutRoute = "/home/my_account/about";
   static const String transactionHistoryRoute = "/home/my_account/transaction";
+  static const String mapRoute = "/home/deliveries/map";
 }
 
 class RouteGenerator {
@@ -83,6 +85,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const AboutView());
       case Routes.transactionHistoryRoute:
         return MaterialPageRoute(builder: (_) => const TransactionDetailView());
+      case Routes.mapRoute:
+        return MaterialPageRoute(builder: (_) => const MapView());
       default:
         return unDefinedRoute();
     }

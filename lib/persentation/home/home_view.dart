@@ -101,7 +101,7 @@ class _HomeViewState extends State<HomeView> {
           JoJoListBtn(
               onPressed: () =>
               {Navigator.pushNamed(context, Routes.earningRoute)},
-              text: "Earning"),
+              text: "Earnings"),
           JoJoListBtn(
               onPressed: () =>
               {Navigator.pushNamed(context, Routes.creditWalletRoute)},

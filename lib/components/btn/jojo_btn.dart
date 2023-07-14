@@ -39,7 +39,7 @@ class JoJoBtn extends StatelessWidget {
       hoverColor: Colors.transparent,
       colorBrightness: Brightness.light,
       onPressed: isDisable ? null : onPressed,
-      minWidth: isBlock ? double.infinity :180,
+      minWidth: isBlock ? double.infinity :160,
       height: height,
       elevation: elevation,
       highlightElevation: 0,

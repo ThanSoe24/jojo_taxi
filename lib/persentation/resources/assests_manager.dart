@@ -32,5 +32,7 @@ class ImageAssets {
 
   //Profile
   static const String profileIcon = "$IMAGE_PATH/profile.png";
+  static const String earningIcon = "$IMAGE_PATH/earnings.png";
+  static const String creditWalletIcon = "$IMAGE_PATH/credit_wallet.png";
 
 }

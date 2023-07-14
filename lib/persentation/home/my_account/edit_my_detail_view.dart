@@ -112,24 +112,69 @@ class _EditMyDetailViewState extends State<EditMyDetailView> {
                     const SizedBox(
                       height: 15,
                     ),
-                    JoJoTextField(
-                        controller: _fullNameController,
-                        hint: "Full Name as per IC*",
-                        validationBuilder: ValidationBuilder().phone()),
-                    const SizedBox(
-                      height: 15,
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                            width: 30,
+                            child: Icon(
+                              Icons.person,
+                              size: 30,
+                              color: ColorManager.grey,
+                            )),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        JoJoText("Jonathan Lee",
+                            style: getBoldStyle(
+                                color: ColorManager.grey,
+                                fontSize: FontSize.s16)),
+                      ],
                     ),
-                    JoJoTextField(
-                        controller: _mobileController,
-                        hint: "Mobile*",
-                        validationBuilder: ValidationBuilder().phone()),
                     const SizedBox(
-                      height: 15,
+                      height: 10,
                     ),
-                    JoJoTextField(
-                        controller: _emailController,
-                        hint: "Email*",
-                        validationBuilder: ValidationBuilder().phone()),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                            width: 30,
+                            child: Icon(
+                              Icons.phone_android,
+                              size: 30,
+                              color: ColorManager.grey,
+                            )),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        JoJoText("012-34567890",
+                            style: getBoldStyle(
+                                color: ColorManager.grey,
+                                fontSize: FontSize.s16)),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                            width: 30,
+                            child: Icon(
+                              Icons.mail,
+                              size: 25,
+                              color: ColorManager.grey,
+                            )),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        JoJoText("jonathanlee@gmail.com",
+                            style: getBoldStyle(
+                                color: ColorManager.grey,
+                                fontSize: FontSize.s16)),
+                      ],
+                    ),
                     const SizedBox(
                       height: 15,
                     ),
@@ -215,26 +260,32 @@ class _EditMyDetailViewState extends State<EditMyDetailView> {
                 ),
               ),
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Column(
               children: [
-                JoJoBtn(
-                  text: "Save",
-                  onPressed: () {},
-                  color: ColorManager.primary,
-                  isBlock: false,
-                  radius: 50,
+                const SizedBox(height: 15,),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    JoJoBtn(
+                      text: "Save",
+                      onPressed: () {},
+                      color: ColorManager.primary,
+                      isBlock: false,
+                      radius: 50,
+                    ),
+                    JoJoBtn(
+                      text: "Cancel",
+                      onPressed: () {},
+                      color: ColorManager.white,
+                      isBlock: false,
+                      radius: 50,
+                      elevation: 1,
+                    )
+                  ],
                 ),
-                JoJoBtn(
-                  text: "Cancel",
-                  onPressed: () {},
-                  color: ColorManager.white,
-                  isBlock: false,
-                  radius: 50,
-                  elevation: 1,
-                )
+                const SizedBox(height: 15,)
               ],
             )
           ],
@@ -267,6 +318,7 @@ class _EditMyDetailViewState extends State<EditMyDetailView> {
                 children: [
                   ListView.builder(
                       shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: carTypeList.length,
                       itemBuilder: (BuildContext context, int index) {
                         return InkWell(
@@ -382,6 +434,7 @@ class _EditMyDetailViewState extends State<EditMyDetailView> {
                   ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: petTypeList.length,
                       itemBuilder: (BuildContext context, int index) {
                         return InkWell(
@@ -469,6 +522,7 @@ class _EditMyDetailViewState extends State<EditMyDetailView> {
                   ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: petSizeList.length,
                       itemBuilder: (BuildContext context, int index) {
                         return InkWell(

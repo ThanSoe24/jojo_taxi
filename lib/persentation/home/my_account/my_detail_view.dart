@@ -285,6 +285,7 @@ class _MyDetailViewState extends State<MyDetailView> {
                     ListView.builder(
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
+                        physics: const NeverScrollableScrollPhysics(),
                         itemCount: petTypeList.length,
                         itemBuilder: (BuildContext context, int index) {
                           return SizedBox(
@@ -347,7 +348,11 @@ class _MyDetailViewState extends State<MyDetailView> {
                           style: getMediumStyle(
                               color: ColorManager.grey, fontSize: FontSize.s16),
                         ),
+
                       ],
+                    ),
+                    Container(
+                      height: 25,
                     ),
                   ],
                 ),
